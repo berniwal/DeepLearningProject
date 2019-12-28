@@ -10,7 +10,6 @@ from tensorflow.compat.v1.keras.optimizers import Adam
 import CreateDataset
 
 print(tf.__version__)
-tf.debugging.set_log_device_placement(True)
 
 FILE_NAMES = ['algebra__linear_1d.txt']
 
