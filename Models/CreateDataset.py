@@ -2,7 +2,7 @@
 import os
 
 import tensorflow as tf
-import tensorflow_datasets as tfds
+
 
 
 # https://stackoverflow.com/questions/49370940/one-hot-encoding-characters
@@ -49,11 +49,11 @@ def one_hot_encode_map(x, LSTM_LENGTH):    # Mapping Function can be applied on 
 
     #Zero pad the Tensor to the LSTM Dimension
     first =  tf.py_function(right_pad_tensor, inp=[first,LSTM_LENGTH], Tout=(tf.float32))
-    second = tf.py_function(left_pad_tensor, inp=[second,LSTM_LENGTH], Tout=(tf.float32))
+    second = tf.py_function(left_pad_tensor, inp=[second,30], Tout=(tf.float32))
 
     #Set the Shape as the Shape gets lost after py_function
-    first.set_shape([80,190])
-    second.set_shape([80,190])
+    first.set_shape([80,LSTM_LENGTH])
+    second.set_shape([80,30])
 
     return first, second
 

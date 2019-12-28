@@ -2,10 +2,15 @@
 import os
 
 import tensorflow as tf
-from tensorflow.keras import layers
-from tensorflow.keras.optimizers import Adam
+#from tensorflow.keras import layers
+from tensorflow.compat.v1.keras import layers
+#from tensorflow.keras.optimizers import Adam
+from tensorflow.compat.v1.keras.optimizers import Adam
 
 import CreateDataset
+
+print(tf.__version__)
+tf.debugging.set_log_device_placement(True)
 
 FILE_NAMES = ['algebra__linear_1d.txt']
 
@@ -29,7 +34,8 @@ test_data = test_data.batch(BATCH_SIZE)
 
 model = tf.keras.Sequential()
 model.add(layers.Input(shape=(80, LSTM_SIZE)))
-model.add(layers.LSTM(LSTM_SIZE, return_sequences=True, activation='sigmoid'))
+model.add(layers.LSTM(30, return_sequences=True))
+model.add(layers.Dense(30))
 print(model.summary())
 
 optimizer = Adam(
@@ -52,8 +58,20 @@ model.fit(train_data,
 #Make sample prediction on one Test data Point
 
 for x,y in train_data:
-    print(x)
+    print(x[0])
     y_pred = model.predict(x)
-    print(y_pred)
+    print(y_pred[0])
+
+    alphabet = " abcdefghijklmnopqrstuvwxyz" \
+               "ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
+               "0123456789*+-.=/()?,'>:<!{}"
+
+    int_to_char = dict((i, c) for i, c in enumerate(alphabet))
+
+    prediction = []
+    for x in tf.argmax(y_pred[0], axis=1):
+        prediction.append(int_to_char[x.numpy()])
+
+    print(prediction)
     break
 
