@@ -52,7 +52,7 @@ model.fit(train_data,
 #Make sample prediction on one Test data Point
 
 for x,y in train_data:
-    print(x)git 
+    print(x)
     y_pred = model.predict(x)
     print(y_pred)
     break
