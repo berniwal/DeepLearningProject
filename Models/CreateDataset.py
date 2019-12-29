@@ -34,9 +34,28 @@ def convert_to_one_hot_tensor(data): # One Hot Encode the Characters
         letter[value] = 1
         one_hot.append(letter)
 
-    one_hot_tensor = tf.transpose(tf.convert_to_tensor(one_hot))
+    #one_hot_tensor = tf.transpose(tf.convert_to_tensor(one_hot))
+    one_hot_tensor = tf.convert_to_tensor(one_hot)
 
     return tf.dtypes.cast(one_hot_tensor, tf.float32)
+
+def num_labels(data):
+    alphabet = " abcdefghijklmnopqrstuvwxyz" \
+               "ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
+               "0123456789*+-.=/()?,'>:<!{}"
+
+    data = data.numpy().decode("utf-8")
+
+    # Creates a dict, that maps to every char of alphabet an unique int based on position
+    char_to_int = dict((c, i) for i, c in enumerate(alphabet))
+    encoded_data = []
+
+    # Replaces every char in data with the mapped int
+    encoded_data.append([char_to_int[char] for char in data])
+
+    encoded_data = tf.convert_to_tensor(encoded_data[0])
+    return tf.dtypes.cast(encoded_data, tf.float32)
+
 
 
 def one_hot_encode_map(x, LSTM_LENGTH):    # Mapping Function can be applied on Dataset
@@ -48,27 +67,47 @@ def one_hot_encode_map(x, LSTM_LENGTH):    # Mapping Function can be applied on 
     second = tf.py_function(convert_to_one_hot_tensor,inp=[x[1]], Tout=(tf.float32))
 
     #Zero pad the Tensor to the LSTM Dimension
-    first =  tf.py_function(right_pad_tensor, inp=[first,LSTM_LENGTH], Tout=(tf.float32))
-    second = tf.py_function(left_pad_tensor, inp=[second,30], Tout=(tf.float32))
+    first =  tf.py_function(input_output_concat_tensor, inp=[first,second,LSTM_LENGTH], Tout=(tf.float32))
+    second = tf.py_function(right_left_pad_output_tensor, inp=[second,30,LSTM_LENGTH], Tout=(tf.float32))
 
+    second_label = tf.py_function(num_labels, inp=[x[1]], Tout=(tf.float32))
+    second_label = tf.py_function(right_left_pad_output_tensor_label, inp=[second_label, 30, LSTM_LENGTH], Tout=(tf.float32))
     #Set the Shape as the Shape gets lost after py_function
-    first.set_shape([80,LSTM_LENGTH])
-    second.set_shape([80,30])
+    first.set_shape([LSTM_LENGTH, 80])
+    second.set_shape([LSTM_LENGTH,80])
+    second_label.set_shape([LSTM_LENGTH])
 
-    return first, second
+    return first, second_label
 
-
-def right_pad_tensor(tensor, desired_dimension):   # Right pad tensor with zeros to desired Dimension
+def input_output_concat_tensor(tensor, out_tensor, desired_dimension):   # Right pad tensor with zeros to desired Dimension
     current_rows, current_cols = tf.shape(tensor)
-    padding = tf.zeros([current_rows, desired_dimension - current_cols], dtype = tensor.dtype)
-    tensor = tf.concat([tensor,padding], 1)
+    current_rows_out, current_cols_out = tf.shape(out_tensor)
+    padding = tf.zeros([desired_dimension - current_rows -current_rows_out + 1, current_cols], dtype = tensor.dtype)
+    tensor = tf.concat([tensor,padding,out_tensor[:-1]], 0)
     return tensor
 
 
-def left_pad_tensor(tensor,desired_dimension):    # Left pad tensor with zeros to desired Dimension
+def right_left_pad_output_tensor_label(tensor, output_dimension, desired_dimension):   # Right pad tensor with zeros to desired Dimension
+    current_rows = tf.shape(tensor)
+    if(current_rows - output_dimension != 0):
+        padding_right = tf.zeros([output_dimension - current_rows], dtype = tensor.dtype)
+        padding = tf.zeros([desired_dimension - output_dimension], dtype = tensor.dtype)
+        tensor = tf.concat([padding,tensor,padding_right], 0)
+    else:
+        padding = tf.zeros([desired_dimension - output_dimension], dtype=tensor.dtype)
+        tensor = tf.concat([padding,tensor], 0)
+    return tensor
+
+
+def right_left_pad_output_tensor(tensor, output_dimension, desired_dimension):   # Right pad tensor with zeros to desired Dimension
     current_rows, current_cols = tf.shape(tensor)
-    padding = tf.zeros([current_rows, desired_dimension - current_cols], dtype=tensor.dtype)
-    tensor = tf.concat([padding, tensor], 1)
+    if(current_rows - output_dimension != 0):
+        padding_right = tf.zeros([output_dimension - current_rows, current_cols], dtype = tensor.dtype)
+        padding = tf.zeros([desired_dimension - output_dimension, current_cols], dtype = tensor.dtype)
+        tensor = tf.concat([padding,tensor,padding_right], 0)
+    else:
+        padding = tf.zeros([desired_dimension - output_dimension, current_cols], dtype=tensor.dtype)
+        tensor = tf.concat([padding,tensor], 0)
     return tensor
 
 
