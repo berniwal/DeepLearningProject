@@ -10,13 +10,15 @@ from tensorflow.compat.v1.keras.optimizers import Adam
 import CreateDataset
 
 print(tf.__version__)
+print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
 
 FILE_NAMES = ['algebra__linear_1d.txt']
 
 BUFFER_SIZE = 50000
-BATCH_SIZE = 128
+BATCH_SIZE = 256
 TAKE_SIZE = 5000
-LSTM_SIZE = 512
+LSTM_SIZE = 1024
+TAKE_TRAIN_SIZE = 512000
 
 total_matches = 0
 
@@ -39,11 +41,11 @@ def exact(true_label, predicted):
 # Create Dataset of all FileNames with One Hot Character Encoding
 # and Padding to LSTM_SIZE
 
-all_labeled_data = CreateDataset.create_dataset(FILE_NAMES,LSTM_SIZE)
+all_labeled_data = CreateDataset.create_dataset(FILE_NAMES,190)
 
 #Split in Train and Test Data (Remove .take(TAKE_SIZE) at train_data to train on all data)
 
-train_data = all_labeled_data.skip(TAKE_SIZE).take(TAKE_SIZE)
+train_data = all_labeled_data.skip(TAKE_SIZE).take(TAKE_TRAIN_SIZE)
 train_data = train_data.batch(BATCH_SIZE)
 
 test_data = all_labeled_data.take(TAKE_SIZE)
@@ -52,7 +54,7 @@ test_data = test_data.batch(BATCH_SIZE)
 print(train_data)
 
 model = tf.keras.Sequential()
-model.add(layers.Input(shape=(LSTM_SIZE,80)))
+model.add(layers.Input(shape=(190,80)))
 model.add(layers.LSTM(LSTM_SIZE, return_sequences=True))
 model.add(layers.Dense(80))
 print(model.summary())
@@ -86,28 +88,3 @@ model.fit(train_data,
           verbose=1)
 
 
-'''#Make sample prediction on one Test data Point
-
-for x,y in train_data:
-    print(x[0])
-    y_pred = model.predict(x)
-    print(y_pred[0])
-
-    alphabet = " abcdefghijklmnopqrstuvwxyz" \
-               "ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
-               "0123456789*+-.=/()?,'>:<!{}"
-
-    int_to_char = dict((i, c) for i, c in enumerate(alphabet))
-
-    prediction = []
-    for x in tf.argmax(tf.math.softmax(y_pred[0], axis=1), axis=1):
-        prediction.append(int_to_char[x.numpy()])
-
-    y_true = []
-    for x in y[0]:
-        y_true.append(int_to_char[x.numpy()])
-
-    print(y_true)
-    print(prediction)
-    break
-'''
