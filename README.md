@@ -17,7 +17,9 @@ This folder contains the checkpoint of the (best) model for the arithmetic__add_
 This folder contains the checkpoint of the (best) model for the calculus_differentiate problem used to measure the performance of the model.
 ### calculus__differentiate_images
 This folder contains images which were used in the paper to show some examples
-#How to Run the Code
+## Writing
+This folder contains the proposal and the paper itself.
+# How to Run the Code
 Go to the Models folder and select the Notebook for which subproblem you want to run the code.
 Make sure you have installed some Python 3, Tensorflow 2.0.0, Numpy and Matplotlib otherwise you will not be able to run the code.
 If you made sure you have installed those libraries, then you should be able to execute the notebook without any further considerations.
