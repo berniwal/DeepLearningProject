@@ -1,0 +1,10 @@
+Input: Put together -4 and -0.1126.
+Predicted translation: -4.1126
+Input: What is -0.5 + -3.116?
+Predicted translation: -3.616
+Input: Sum -0.2 and -4.98.
+Predicted translation: -5.18
+Input: Add 5 and 1753.
+Predicted translation: 1758
+Input: Calculate -0.315 - 390.
+Predicted translation: -390.315

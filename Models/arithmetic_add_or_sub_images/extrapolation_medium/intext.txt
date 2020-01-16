@@ -1,0 +1,10 @@
+Input: Total of 0.06 and -1977321735.
+Predicted translation: -1977321326.94
+Input: Add together 2 and 436273715.
+Predicted translation: 43627377
+Input: Calculate 4062037 + -0.07.
+Predicted translation: 4062036.93
+Input: What is the difference between -57 and -18192.801?
+Predicted translation: 88135.81
+Input: 2.427689 - -30925
+Predicted translation: 30927.427689

@@ -1,0 +1,20 @@
+Find the third derivative of 178776*b**4 + 312*b**3 - 3594*b**2 + 68923*b wrt b.
+4290624*b + 1872
+Input: Find the third derivative of 178776*b**4 + 312*b**3 - 3594*b**2 + 68923*b wrt b.
+Predicted translation: 428620*b + 1972
+Differentiate 214545431*i*q + 2*i + 2*q + 45166490 with respect to i.
+214545431*q + 2
+Input: Differentiate 214545431*i*q + 2*i + 2*q + 45166490 with respect to i.
+Predicted translation: 214943434343434343434343434343
+Find the second derivative of q**5 - 391*q**4 + 1600*q**2 - 28211251*q.
+20*q**3 - 4692*q**2 + 3200
+Input: Find the second derivative of q**5 - 391*q**4 + 1600*q**2 - 28211251*q.
+Predicted translation: 20*q**3 - 4692*q**2 + 3200
+Find the first derivative of -119078754*z - 159729822.
+-119078754
+Input: Find the first derivative of -119078754*z - 159729822.
+Predicted translation: -1190747
+Find the second derivative of -3*w**3*z + 56*w**3 - 23*w**2*z - 6093468*w*z wrt w.
+-18*w*z + 336*w - 46*z
+Input: Find the second derivative of -3*w**3*z + 56*w**3 - 23*w**2*z - 6093468*w*z wrt w.
+Predicted translation: -18*w*z + 336*w - 46*z

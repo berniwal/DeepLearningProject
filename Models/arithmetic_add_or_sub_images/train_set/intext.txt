@@ -1,0 +1,10 @@
+Input: What is -5 - 110911?
+Predicted translation: -110916
+Input: What is -0.188 + -0.814?
+Predicted translation: -1.002
+Input: Sum 259 and -46.
+Predicted translation: 213
+Input: Sum -10 and -52539.
+Predicted translation: -52549
+Input: What is the difference between -2 and 251860?
+Predicted translation: 251862

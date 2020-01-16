@@ -1,0 +1,20 @@
+Differentiate -186089*h**2 - 122007 with respect to h.
+-372178*h
+Input: Differentiate -186089*h**2 - 122007 with respect to h.
+Predicted translation: -372178*h
+What is the first derivative of 388896*d**3 - 222232?
+1166688*d**2
+Input: What is the first derivative of 388896*d**3 - 222232?
+Predicted translation: 116692*d**2
+Find the first derivative of -14*q**2 - 1003*q - 64537 wrt q.
+-28*q - 1003
+Input: Find the first derivative of -14*q**2 - 1003*q - 64537 wrt q.
+Predicted translation: -28*q - 1003
+Find the third derivative of -d*n**6 - 1787*d*n - 2*n**6 - 2007*n**3 + 17*n**2 wrt n.
+-120*d*n**3 - 240*n**3 - 12042
+Input: Find the third derivative of -d*n**6 - 1787*d*n - 2*n**6 - 2007*n**3 + 17*n**2 wrt n.
+Predicted translation: -120*d*n**3 - 240*n**3 - 12042
+What is the second derivative of -d**2*t*z - 94817*d**2*z - d**2 + 87*d*t*z + 6*d*z - 4*t*z - 2 wrt d?
+-2*t*z - 189634*z - 2
+Input: What is the second derivative of -d**2*t*z - 94817*d**2*z - d**2 + 87*d*t*z + 6*d*z - 4*t*z - 2 wrt d?
+Predicted translation: -2*t*z - 18962*z - 2

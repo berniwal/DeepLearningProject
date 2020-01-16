@@ -1,0 +1,20 @@
+What is the derivative of -6*a**2*h*m - 122*a*h - h*m - 1317*m wrt a?
+-12*a*h*m - 122*h
+Input: What is the derivative of -6*a**2*h*m - 122*a*h - h*m - 1317*m wrt a?
+Predicted translation: -12*a*h*m - 122*h
+Differentiate 68*k**2 - 4*k - 290.
+136*k - 4
+Input: Differentiate 68*k**2 - 4*k - 290.
+Predicted translation: 136*k - 4
+Find the second derivative of 2*b*l**3*y**3 - 6*b*l**3 - 244*b*l**2*y**3 - b*l**2*y + b*l**2 - 10*l**3*y wrt y.
+12*b*l**3*y - 1464*b*l**2*y
+Input: Find the second derivative of 2*b*l**3*y**3 - 6*b*l**3 - 244*b*l**2*y**3 - b*l**2*y + b*l**2 - 10*l**3*y wrt y.
+Predicted translation: 12*b*l**3*y - 1488*b*l**3
+What is the second derivative of -1825*y**4 - 164*y - 1 wrt y?
+-21900*y**2
+Input: What is the second derivative of -1825*y**4 - 164*y - 1 wrt y?
+Predicted translation: -21900*y**2
+Find the second derivative of 566*t**2 - 124*t wrt t.
+1132
+Input: Find the second derivative of 566*t**2 - 124*t wrt t.
+Predicted translation: 1132

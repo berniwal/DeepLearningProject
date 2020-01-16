@@ -1,0 +1,20 @@
+Find the first derivative of 2*d**4 - 35*d**2 - 695 wrt d.
+8*d**3 - 70*d
+Input: Find the first derivative of 2*d**4 - 35*d**2 - 695 wrt d.
+Predicted translation: 8*d**3 - 70*d
+Find the third derivative of -a**3*g**3*t**3 + 642*a**3*g*t**3 + 16*a**3*g*t**2 - 5*a**2*t**2 + a*g**3 wrt t.
+-6*a**3*g**3 + 3852*a**3*g
+Input: Find the third derivative of -a**3*g**3*t**3 + 642*a**3*g*t**3 + 16*a**3*g*t**2 - 5*a**2*t**2 + a*g**3 wrt t.
+Predicted translation: -6*a**3*g**3 + 3852*a**3*f + 6
+What is the second derivative of 12518*f**3 + 3760*f?
+75108*f
+Input: What is the second derivative of 12518*f**3 + 3760*f?
+Predicted translation: 75108*f
+What is the third derivative of -t**4 - 880*t**3 + 152*t**2 wrt t?
+-24*t - 5280
+Input: What is the third derivative of -t**4 - 880*t**3 + 152*t**2 wrt t?
+Predicted translation: -24*t - 5280
+What is the second derivative of 2*c*n**2*z**3 + 30*c*n**2 + 2*c*n*z**2 - 2*c + n**2*z**2 - 3*n*z**3 - 2*n*z wrt n?
+4*c*z**3 + 60*c + 2*z**2
+Input: What is the second derivative of 2*c*n**2*z**3 + 30*c*n**2 + 2*c*n*z**2 - 2*c + n**2*z**2 - 3*n*z**3 - 2*n*z wrt n?
+Predicted translation: 4*c*z**3 + 60*c + 2*z**2

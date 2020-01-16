@@ -1,0 +1,10 @@
+Input: Work out -0.5 - -1782838373837.
+Predicted translation: 17828387.5
+Input: What is 59086632155.4 + -3?
+Predicted translation: 59086632.4
+Input: Total of 9207641 and -0.541.
+Predicted translation: 9207640.459
+Input: What is the difference between 173.47 and -272507015.8?
+Predicted translation: 27360908.2
+Input: Add together -4.154 and -1947579961.4.
+Predicted translation: -19475800000000000000000000000
