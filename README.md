@@ -20,9 +20,9 @@ This folder contains images which were used in the paper to show some examples
 ## Writing
 This folder contains the proposal and the paper itself.
 # How to Run the Code
-Go to the Models folder and select the Notebook for which subproblem you want to run the code.
-Make sure you have installed the required libraries in the first import statement (tensorflow 2.x) otherwise you will not be able to run the code.
-If you made sure you have installed those libraries, then you should be able to execute the notebook without any further considerations.
+* Go to the Models folder and select the Notebook for which subproblem you want to run the code.
+* Make sure you have installed the required libraries in the first import statement (tensorflow 2.x) otherwise you will not be able to run the code.
+* If you made sure you have installed those libraries, then you should be able to execute the notebook without any further considerations.
 # Related Work
 ## Based on the Paper 'Analysing Mathematical Reasoning Abilities of Neural Models'
 https://arxiv.org/pdf/1904.01557.pdf
