@@ -30,3 +30,5 @@ https://arxiv.org/pdf/1904.01557.pdf
 https://github.com/deepmind/mathematics_dataset
 ## Link to Pre-Generated Dataset
 https://console.cloud.google.com/storage/browser/mathematics-dataset?pli=1
+## Link to used tutorial about Neural Machine Translation with Attention
+https://www.tensorflow.org/tutorials/text/nmt_with_attention
