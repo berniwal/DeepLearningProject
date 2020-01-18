@@ -20,6 +20,7 @@ This folder contains images which were used in the paper to show some examples
 ## Writing
 This folder contains the proposal and the paper itself.
 # How to Run the Code
+* If you have not downloaded the Repository From Github then you have to download the Dataset folder from https://github.com/berniwal/DeepLearningProject/ and replace it as there was not enough space to compress it to a 100MB zip file. Otherwise if downloaded from Github you can skip this step.
 * Go to the Models folder and select the Notebook for which subproblem you want to run the code.
 * Make sure you have installed the required libraries in the first import statement (tensorflow 2.x) otherwise you will not be able to run the code.
 * If you made sure you have installed those libraries, then you should be able to execute the notebook without any further considerations.
